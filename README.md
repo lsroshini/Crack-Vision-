@@ -126,25 +126,3 @@ pip install -e ".[dev]"
 pytest
 ```
 
-## Fidelity to the original notebook
-
-This repository is a pure restructuring of `notebooks/original/CV_PACKAGE_FINAL.ipynb`. No algorithm,
-parameter or statement was changed. This is enforced, not just claimed:
-
-- `tests/test_notebook_fidelity.py` compares the AST of every notebook statement with the package code.
-- `tests/test_pipeline_parity.py` executes the original notebook cells and asserts bit-identical
-  `detect_cracks()` output.
-- `notebooks/original/SHA256SUM` pins the untouched notebook.
-
-See [`docs/NOTEBOOK_MAPPING.md`](docs/NOTEBOOK_MAPPING.md) for the cell-to-module map.
-
-## Known characteristics
-
-- Module-level `print()` calls from the notebook (e.g. "Utility functions ready!") are preserved and
-  therefore appear on `import crackvision`.
-- The default `Config` favours recall over specificity (see Benchmark).
-- Severity bins use `max_width`; with the default `mm_per_px = 1.0` they are in pixels unless calibrated.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
