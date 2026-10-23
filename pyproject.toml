@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crackvision"
+version = "1.0.0"
+description = "Classical computer-vision pipeline for surface crack detection, skeletonisation and measurement."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["computer-vision", "crack-detection", "image-processing", "opencv", "scikit-image"]
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "matplotlib",
+    "scikit-image",
+    "scikit-learn",
+    "tqdm",
+    "kagglehub",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["crackvision*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
